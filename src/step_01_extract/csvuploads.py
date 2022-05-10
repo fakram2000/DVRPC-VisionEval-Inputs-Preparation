@@ -23,9 +23,8 @@ cur = connection.cursor()
 conn_string = 'postgresql://postgres:root@localhost/visioneval_data'
 #where your excel files are located
 
-#Note: this script only allows you to upload the first csv in the folder, this needs to be fixed- Fiza 
 
-filepath = "C:/Users/fakram/Desktop/CSVs/"
+filepath = "C:/Users/fakram/Desktop/CSVs"
 ######################################
 
 #get list of existing tables in DB
@@ -74,7 +73,7 @@ def loadtables(tbl_name, excel_file_name):
         print("already in database")
 
 #iterate over the files to run the above functions
-db_tbl_names = ['geo']
+db_tbl_names = 'bzone_lat_lon'
 files = os.listdir(filepath)
-for i in range(0,4):
-    loadtables(db_tbl_names[i], files[i])
+#for i in range(0,4):
+loadtables(db_tbl_names, files) 
